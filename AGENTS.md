@@ -11,7 +11,6 @@ full pipeline description.
 - `RESUME.md` — master resume evidence bank / scratchpad (source of truth for experience, impact, metrics, skills). Agents distill this into tailored resumes.
 - `braindump.md` — **local-only, gitignored.** Broader narrative + application defaults.
   - **If `braindump.md` does not exist, create it.** It is a general knowledge bank you can pull from for constructing tailored resumes — personal narrative, preferences, and context that are intentionally not checked in. Populate it as needed.
-- `job_field_profiles.md` — recurring requirements by field and keyword mapping
 - `resumes/<field>/resume.md` — the tailored resume for a given `<field>` (e.g. `insurtech`, `ml-platform`, `agentic-platform`). `<field>` is the canonical grouping key.
 - `applications/tracker.csv` — master application tracker CSV (one row per company/role, with status, salary range, match assessment, key skills/gaps)
 - `applications/<application>/application.md` — one directory per job application. Each `application.md` has YAML frontmatter (`company`, `role`, `field`, `status`, `posting_url`, `resume_used`, ...) plus the job description, links, and resume strategy.

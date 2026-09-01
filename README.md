@@ -19,8 +19,8 @@ discover → tailor → prepare → [ human reviews & submits ] → track
 ### 1. Posting discovery
 - **HN Algolia** ("Who is Hiring?" threads) plus job boards (Indeed, Work at a
   Startup, Ashby/Greenhouse boards) are scraped and filtered against the
-  candidate's field profiles (`job_field_profiles.md`) — recurring requirements,
-  keyword mappings, and salary/location constraints.
+  candidate's field profiles — recurring requirements, keyword mappings, and
+  salary/location constraints per resume field.
 - Candidate postings are checked for duplicates and close dates before any
   effort is spent, then staged locally with a match score, key skills
   required, and identified gaps.
@@ -66,7 +66,6 @@ discover → tailor → prepare → [ human reviews & submits ] → track
 |---|---|
 | `AGENTS.md` | The agent's operating contract: hard rules, submit gate, fit vetting, form-filling discipline |
 | `RESUME.md` | Master resume evidence bank |
-| `job_field_profiles.md` | Requirements/keywords per field |
 | `resumes/<field>/` | Tailored resume per field |
 | `daemons/` | Job-discovery, Gmail status-sweep, and credential-check daemons |
 | `scripts/cdp.py` | CDP browser automation |
