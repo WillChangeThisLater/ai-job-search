@@ -1,0 +1,17 @@
+# Local-only knowledge bank — intentionally not checked in.
+# Contains personal narrative, salary preferences, and private context.
+# If missing, agents should create it and treat it as a local knowledge bank.
+braindump.md
+
+# Python/cache artifacts
+__pycache__/
+*.pyc
+
+# Application data (tracker, per-application dirs, prospects) is local-only.
+# Contains live details about companies Paul is applying to — kept out of the
+# public repo on purpose. The pipeline reads/writes these locally; agents
+# should never re-add them to git.
+applications/
+
+# Writing-style samples (personal prose samples used for voice-matching) — local-only.
+writing-style/
