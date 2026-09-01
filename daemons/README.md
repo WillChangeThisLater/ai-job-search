@@ -23,21 +23,12 @@ Each daemon is a directory with:
 
 The daemons (and the interactive application agents) are built on agent
 skills — reusable, documented interaction patterns the agent loads before
-touching a given tool:
-
-- **browser skill** — agent-optimized automation of a real Chrome via the
-  Chrome DevTools Protocol: navigate, click, type, screenshot-verify, with
-  CDP port-selection rules so agents never attach to each other's browsers.
-  Part of the [`pi` coding-agent](https://github.com/badlogic/pi-mono) skill
-  library ([skills docs](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/skills.md)).
-- **x11-gui-automation skill** — agent-authored (lives in the agent's local
-  skills directory, not this repo): isolated Xvfb displays per app with VNC
-  observation, an allocation registry (`x11_env.sh`) so concurrent agents
-  never fight over displays or ports, and an escalation ladder
-  (CDP/DOM → xdotool → ask the human).
-- **tmux skill** — how agents communicate with tmux panes; the mechanism
-  behind launching and monitoring subagents in separate panes
-  ([docs](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/tmux.md)).
+touching a given tool. The relevant skills are symlinked into
+[`skills/`](../skills/) at the repo root: `browser` (CDP automation of a real
+Chrome, with port-selection rules so agents never attach to each other's
+browsers), `x11-gui-automation` (isolated Xvfb displays per app with VNC
+observation and a display/port registry), and `tmux` (pane communication for
+launching and monitoring subagents).
 
 ## Operations
 
