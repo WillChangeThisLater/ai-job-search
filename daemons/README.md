@@ -19,17 +19,6 @@ Each daemon is a directory with:
 | `ai-job-status-updates/` | Daily | Digest of daemon logs plus git/CSV changes, pushed via ntfy — anomaly-first, silent when nothing changed. |
 | `cred-check/` | Daily | Checks that browser session credentials the pipeline depends on are still live; alerts via ntfy on expiry. |
 
-## Agent tooling
-
-The daemons (and the interactive application agents) are built on agent
-skills — reusable, documented interaction patterns the agent loads before
-touching a given tool. The relevant skills are symlinked into
-[`skills/`](../skills/) at the repo root: `browser` (CDP automation of a real
-Chrome, with port-selection rules so agents never attach to each other's
-browsers), `x11-gui-automation` (isolated Xvfb displays per app with VNC
-observation and a display/port registry), and `tmux` (pane communication for
-launching and monitoring subagents).
-
 ## Operations
 
 - Cron entries call each `run.sh` directly (see the daemon's README for its
