@@ -105,3 +105,16 @@ if __name__=="__main__":
         ws.cmd("Page.navigate",{"url":url})
         print("navigated to", url)
         ws.close()
+    elif cmd=="print":
+        # print current tab to PDF: cdp.py print <out.pdf> [tab_url_substring]
+        out, match = sys.argv[2], (sys.argv[3] if len(sys.argv)>3 else None)
+        ws=WS(get_tab(match)["webSocketDebuggerUrl"])
+        r=ws.cmd("Page.printToPDF",{
+            "preferCSSPageSize": True,
+            "printBackground": False,
+            "marginTop": 0, "marginBottom": 0, "marginLeft": 0, "marginRight": 0,
+        })
+        data=r["result"]["data"]
+        open(out,"wb").write(base64.b64decode(data))
+        print("wrote", out)
+        ws.close()
