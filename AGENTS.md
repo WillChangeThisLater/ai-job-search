@@ -18,6 +18,8 @@ full pipeline description.
 
 ## Conventions
 
+- **Resume authoring**: when drafting or visually polishing any tailored resume, follow the project-scoped [`resume-tailoring` skill](.pi/skills/resume-tailoring/SKILL.md) — content rules (simple bullets, honesty), the render→view→critique loop, and PDF pipeline gotchas.
+
 - Adding a new `<field>`: create `resumes/<new-field>/` and author a genuinely tailored resume (not a copy of another field's), then link it from the application's `application.md` via `../../resumes/<field>/resume.md`.
 - Application status lives in each `application.md` frontmatter `status:`: `identified` | `in_progress` | `submitted` | `offer` | `accepted` | `denied`, mirrored in `applications/tracker.csv`. Terminal states: `offer`, `accepted`, `denied`.
 - Do not commit `braindump.md` or its contents; it is deliberately excluded from version control.
