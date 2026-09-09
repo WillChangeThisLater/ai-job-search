@@ -1,6 +1,6 @@
 # Paul Wendt
 
-Remote (US) · paulwendt567@gmail.com · +1-609-635-6144 · https://www.linkedin.com/in/paul-wendt-81380a260
+Remote (US) · paulwendt567@gmail.com · +1-609-635-6144 · [LinkedIn](https://www.linkedin.com/in/paul-wendt-81380a260)
 
 ## Summary
 
@@ -14,7 +14,7 @@ Senior engineer (5.5 yrs) who treats AI coding agents as the default way to buil
 
 - Built and operated production Python/AWS services ingesting up to 1.2M videos/day (EventBridge→SQS/Lambda→S3/Iceberg), the data foundation for all computer-vision training
 - Designed version-controlled sampling policies (uniform/deterministic/adhoc) cut ingest volume 75% (1.2M → 300k/day) with large cost savings; wired a policy simulator into CI/CD to block overly expensive policy changes
-- Built the governance layer for an ML data platform in a legally constrained domain (30-day retention, RTBF): daily Dagster SQL-invariant and S3-inventory reconciliation checks that caught a race condition, an erroneous backfill, and state drift — codified after leading multi-day incident response with legal on a toggle-inversion bug affecting hundreds of thousands of users
+- Built the governance layer for an ML data platform in a legally constrained domain (30-day retention, Right-to-be-Forgotten): daily Dagster SQL-invariant and S3-inventory reconciliation checks that caught a race condition, an erroneous backfill, and state drift — codified after leading multi-day incident response with legal on a toggle-inversion bug affecting hundreds of thousands of users
 - Deployed and stabilized Voxel51 on EKS (vendor API instability → direct MongoDB SDK workaround); built a custom delegated operator bridging Voxel to Anyscale that the vendor adopted as a product feature
 
 **Data Engineer / Platform Engineer** · Nov 2021 – Oct 2024 · (promoted to DE II Jun 2023)

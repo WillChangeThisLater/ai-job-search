@@ -1,7 +1,14 @@
 # Paul Wendt
 
+<style>
+body { font-size: 10pt; line-height: 1.3; }
+li { margin-bottom: 2px; }
+h2 { margin-top: 0.9em; }
+</style>
+
+
 Boston, MA area  
-paulwendt567@gmail.com | +1-609-635-6144 | https://www.linkedin.com/in/paul-wendt-81380a260
+paulwendt567@gmail.com | +1-609-635-6144 | [LinkedIn](https://www.linkedin.com/in/paul-wendt-81380a260)
 
 ## Summary
 Senior software/data platform engineer with Python + AWS experience building production systems in regulated environments, plus prior insurance-domain experience at John Hancock. Strong in backend service reliability, compliance controls, and day-to-day AI-assisted engineering with human-in-the-loop validation.
@@ -13,10 +20,10 @@ Senior software/data platform engineer with Python + AWS experience building pro
 **Senior ML Ops Engineer**  
 Hired at Level II · Oct 2024 – Mar 2026 · Promoted to Senior in Jun 2025
 
-- Built and operated production Python/AWS services for ingestion, permission routing, and RTBF compliance
+- Built and operated production Python/AWS services for ingestion, permission routing, and Right-to-be-Forgotten compliance
 - Designed version-controlled sampling that reduced ingest volume 75% (1.2M → 300k videos/day)
 - Led daily reconciliation checks and remediation for a legal-risk toggle incident affecting hundreds of thousands of users
-- Led a 4-month handoff of Friday to 3 ML engineers (CI/CD, CloudFormation, dashboards, datalake tables, sampling ops)
+- Led a 4-month handoff of the video-ingestion service to 3 ML engineers (CI/CD, CloudFormation, dashboards, datalake tables, sampling ops)
 
 **Data Engineer / Platform Engineer**  
 Nov 2021 – Oct 2024 · Promoted to Data Engineer II in Jun 2023
