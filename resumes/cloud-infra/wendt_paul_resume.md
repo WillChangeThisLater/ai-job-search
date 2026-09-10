@@ -20,7 +20,7 @@ Owned the data infrastructure feeding computer vision model training.
 - Built and operated four production data services (video ingestion, AI-permission routing, Right-to-be-Forgotten deletion) on EventBridge → SQS → Lambda → S3/Kinesis Firehose
 - Built Ray/Anyscale pipelines moving nightly video batches and metadata JSON between S3 and an annotation platform, orchestrated via MWAA Airflow
 - Deployed Voxel51 on AWS EKS, establishing secure connectivity to MongoDB Atlas and engineering a custom Anyscale operator adopted by the vendor as a core product feature
-- Ran a 4-month enablement program teaching 3 engineers CloudFormation, CI/CD, and on-call triage until they owned the video-ingestion service independently
+- Led a 4-month enablement program teaching 3 engineers CloudFormation, CI/CD, and on-call triage until they owned the video-ingestion service independently
 
 **Data Engineer II**
 *Nov 2021 – Oct 2024*
