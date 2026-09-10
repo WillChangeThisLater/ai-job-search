@@ -1,6 +1,7 @@
 # Paul Wendt
 
-Remote (US) · paulwendt567@gmail.com · +1-609-635-6144 · [LinkedIn](https://www.linkedin.com/in/paul-wendt-81380a260)
+Email: paulwendt567@gmail.com | Phone: +1-609-635-6144
+LinkedIn: [linkedin.com/in/paul-wendt-81380a260](https://www.linkedin.com/in/paul-wendt-81380a260) | GitHub: [github.com/WillChangeThisLater](https://github.com/WillChangeThisLater)
 
 ## Summary
 

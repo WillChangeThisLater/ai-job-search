@@ -5,7 +5,7 @@ description: How to author and visually polish tailored resumes in this repo —
 
 # Resume Tailoring
 
-Workflow for creating `resumes/<field>/resume.md` and its rendered PDF. This skill is
+Workflow for creating `resumes/<field>/wendt_paul_resume.md` and its rendered PDF. This skill is
 project-specific: it assumes the repo layout in the root `AGENTS.md` (evidence bank in
 `RESUME.md`, one directory per field, `scripts/md2pdf.sh`).
 
@@ -15,7 +15,7 @@ project-specific: it assumes the repo layout in the root `AGENTS.md` (evidence b
 - Read `RESUME.md` first. It is the source of truth for experience, metrics, and scope.
   Never invent or embellish numbers; the bank already has concrete ones (e.g. "cut
   ingestion 75%, 1.2M → ~300K videos/day").
-- Skim an existing field's resume (e.g. `resumes/ml-platform/resume.md`) for structure —
+- Skim an existing field's resume (e.g. `resumes/ml-platform/wendt_paul_resume.md`) for structure —
   but genuinely re-angle content for the new field. A `data-engineer` resume leads with
   pipelines/tables/partitioning; an `agentic-platform` resume leads with services/agents.
   Do not copy-paste with a new title.
@@ -49,10 +49,10 @@ and critique like a designer. Repeat until it passes.
 
 ```bash
 cd /home/paul/ai-job-search
-./scripts/md2pdf.sh resumes/<field>/resume.md resumes/<field>/resume.pdf
-pdftotext resumes/<field>/resume.pdf - | tr -cd '\f' | wc -c   # must print 1
-pdftoppm -png -r 100 resumes/<field>/resume.pdf /tmp/resume_vN
-# then Read /tmp/resume_vN-1.png and actually look at it
+./scripts/md2pdf.sh resumes/<field>/wendt_paul_resume.md resumes/<field>/wendt_paul_resume.pdf
+pdftotext resumes/<field>/wendt_paul_resume.pdf - | tr -cd '\f' | wc -c   # must print 1
+pdftoppm -png -r 100 resumes/<field>/wendt_paul_resume.pdf /tmp/wendt_resume_vN
+# then Read /tmp/wendt_resume_vN-1.png and actually look at it
 ```
 
 Critique checklist (each iteration, with a critical eye):
@@ -99,5 +99,5 @@ All live in `scripts/md2pdf.sh` + `scripts/resume-style.html`; read them before
 
 ## After approval
 
-On approval for a submission: snapshot to `resume_v1.md` / `resume_v1.pdf` (`_v2`, ...),
+On approval for a submission: snapshot to `wendt_paul_resume_v1.md` / `wendt_paul_resume_v1.pdf` (`_v2`, ...),
 point the application's `resume_used:` frontmatter at the versioned file, and commit.

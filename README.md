@@ -29,7 +29,7 @@ discover → tailor → prepare → [ human reviews & submits ] → track
 - `RESUME.md` is the master **evidence bank**: raw experience, impact metrics,
   projects, certifications, and context.
 - For each role, the agent distills the evidence bank into a genuinely
-  tailored resume under `resumes/<field>/resume.md` — reordering, reweighting,
+  tailored resume under `resumes/<field>/wendt_paul_resume.md` — reordering, reweighting,
   and rewording bullets to target the field (`insurtech`, `ml-platform`,
   `agentic-platform`, ...).
 - `braindump.md` (a gitignored local knowledge bank) supplies personal

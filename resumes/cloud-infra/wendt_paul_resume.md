@@ -1,6 +1,7 @@
 # Paul Wendt
 
-paulwendt567@gmail.com · +1-609-635-6144 · linkedin.com/in/paul-wendt-81380a260 · github.com/WillChangeThisLater
+Email: paulwendt567@gmail.com | Phone: +1-609-635-6144
+LinkedIn: [linkedin.com/in/paul-wendt-81380a260](https://www.linkedin.com/in/paul-wendt-81380a260) | GitHub: [github.com/WillChangeThisLater](https://github.com/WillChangeThisLater)
 
 ## Summary
 Cloud infrastructure engineer (4.5 yrs) who has owned production AWS systems end-to-end — architecture, security, cost, on-call — in environments where mistakes meant legal exposure, not just downtime. Ran infrastructure behind systems processing 1M+ videos/day and pipelines running thousands of daily jobs. Pragmatic: happiest as the accountable owner who makes the "how should we build this?" call and does the implementation.

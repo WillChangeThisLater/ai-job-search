@@ -1,6 +1,7 @@
 # Paul Wendt
 
-paulwendt567@gmail.com · +1-609-635-6144 · [LinkedIn](https://www.linkedin.com/in/paul-wendt-81380a260) · [GitHub](https://github.com/WillChangeThisLater)
+Email: paulwendt567@gmail.com | Phone: +1-609-635-6144
+LinkedIn: [linkedin.com/in/paul-wendt-81380a260](https://www.linkedin.com/in/paul-wendt-81380a260) | GitHub: [github.com/WillChangeThisLater](https://github.com/WillChangeThisLater)
 
 ## Summary
 Platform engineer (5.5 yrs) who has owned production systems end-to-end across four services, a company-wide data platform, and vendor deployments — from ambiguous problem through architecture, build, and operation. Deep in Python/AWS, Kubernetes, and data systems at scales up to 1M+ videos/day, in compliance-heavy environments where security and legal constraints shaped the architecture. Track record of setting direction other engineers build on and mentoring engineers into system ownership.

@@ -8,7 +8,8 @@ h2 { margin-top: 0.9em; }
 
 
 Boston, MA area  
-paulwendt567@gmail.com | +1-609-635-6144 | [LinkedIn](https://www.linkedin.com/in/paul-wendt-81380a260)
+Email: paulwendt567@gmail.com | Phone: +1-609-635-6144
+LinkedIn: [linkedin.com/in/paul-wendt-81380a260](https://www.linkedin.com/in/paul-wendt-81380a260) | GitHub: [github.com/WillChangeThisLater](https://github.com/WillChangeThisLater)
 
 ## Summary
 Senior software/data platform engineer with Python + AWS experience building production systems in regulated environments, plus prior insurance-domain experience at John Hancock. Strong in backend service reliability, compliance controls, and day-to-day AI-assisted engineering with human-in-the-loop validation.

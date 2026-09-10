@@ -11,7 +11,7 @@ full pipeline description.
 - `RESUME.md` — master resume evidence bank / scratchpad (source of truth for experience, impact, metrics, skills). Agents distill this into tailored resumes.
 - `braindump.md` — **local-only, gitignored.** Broader narrative + application defaults.
   - **If `braindump.md` does not exist, create it.** It is a general knowledge bank you can pull from for constructing tailored resumes — personal narrative, preferences, and context that are intentionally not checked in. Populate it as needed.
-- `resumes/<field>/resume.md` — the tailored resume for a given `<field>` (e.g. `insurtech`, `ml-platform`, `agentic-platform`). `<field>` is the canonical grouping key.
+- `resumes/<field>/wendt_paul_resume.md` — the tailored resume for a given `<field>` (e.g. `insurtech`, `ml-platform`, `agentic-platform`). `<field>` is the canonical grouping key.
 - `applications/tracker.csv` — master application tracker CSV (one row per company/role, with status, salary range, match assessment, key skills/gaps)
 - `applications/<application>/application.md` — one directory per job application. Each `application.md` has YAML frontmatter (`company`, `role`, `field`, `status`, `posting_url`, `resume_used`, ...) plus the job description, links, and resume strategy.
 - `scripts/` — tooling: `cdp.py` (Chrome DevTools Protocol browser automation), `md2pdf.sh` + `resume.css` (resume markdown → PDF rendering)
@@ -20,7 +20,7 @@ full pipeline description.
 
 - **Resume authoring**: when drafting or visually polishing any tailored resume, follow the project-scoped [`resume-tailoring` skill](.pi/skills/resume-tailoring/SKILL.md) — content rules (simple bullets, honesty), the render→view→critique loop, and PDF pipeline gotchas.
 
-- Adding a new `<field>`: create `resumes/<new-field>/` and author a genuinely tailored resume (not a copy of another field's), then link it from the application's `application.md` via `../../resumes/<field>/resume.md`.
+- Adding a new `<field>`: create `resumes/<new-field>/` and author a genuinely tailored resume (not a copy of another field's), then link it from the application's `application.md` via `../../resumes/<field>/wendt_paul_resume.md`.
 - Application status lives in each `application.md` frontmatter `status:`: `identified` | `in_progress` | `submitted` | `offer` | `accepted` | `denied`, mirrored in `applications/tracker.csv`. Terminal states: `offer`, `accepted`, `denied`.
 - Do not commit `braindump.md` or its contents; it is deliberately excluded from version control.
 
@@ -36,7 +36,7 @@ full pipeline description.
 These rules were crystallized from real runs. Follow them exactly.
 
 ### 1. Resume review gate — BEFORE any form filling
-- Draft the tailored resume (`resumes/<field>/resume.md`) and render the PDF.
+- Draft the tailored resume (`resumes/<field>/wendt_paul_resume.md`) and render the PDF.
 - **Stop. Present the resume content to the human for review and approval BEFORE opening the application form or filling any fields.** No exceptions.
 - If the human requests changes, apply them, re-render, and re-confirm before proceeding.
 
@@ -48,7 +48,7 @@ These rules were crystallized from real runs. Follow them exactly.
 - First person where a sentence needs a pronoun ("I configured..."), never third person ("he/she").
 
 ### 3. PDF rendering pipeline
-- Use: `pandoc resume.md -f gfm -t html5 -s --metadata title=" " -H scripts/resume-style.html -o out.html` then `Page.printToPDF` via `scripts/cdp.py` (WebSocket CDP, `preferCSSPageSize`, letter size).
+- Use: `pandoc wendt_paul_resume.md -f gfm -t html5 -s --metadata title=" " -H scripts/resume-style.html -o out.html` then `Page.printToPDF` via `scripts/cdp.py` (WebSocket CDP, `preferCSSPageSize`, letter size).
 - Gotchas learned the hard way:
   - pandoc's standalone template injects default CSS (50px body padding, base font) that overrides linked stylesheets — embed styles via `-H` (inline `<style>`), and make sure the style file **ends with `</style>`** (an unterminated tag swallows the whole document).
   - headless-chrome `--print-to-pdf` silently cached CSS in one session; the CDP print path is deterministic. Prefer it.
@@ -89,7 +89,7 @@ These rules were crystallized from real runs. Follow them exactly.
   - Flag the fit assessment in the application's `application.md` (a "Fit / keywords" section) including known gaps, so the human can veto before any effort is spent.
 - When in doubt, surface the gap and let the human decide — applications are cheap, brutal interviews are not.
 - Check the posting's application close date BEFORE drafting anything (July-HN-thread postings frequently expire 07-31). If closed, stop and record in tracker as a missed lead rather than investing resume effort.
-- Resume versioning: `resumes/<field>/resume.md` is the living draft. When the human approves it for a submission, snapshot it to `resume_v1.md` (then `_v2`, ...) and render the matching `resume_vN.pdf`. The application's `application.md` frontmatter (`resume_used:`) must point at the **versioned file**, not the living draft, so every application records exactly which resume was submitted.
+- Resume versioning: `resumes/<field>/wendt_paul_resume.md` is the living draft. When the human approves it for a submission, snapshot it to `wendt_paul_resume_v1.md` (then `_v2`, ...) and render the matching `wendt_paul_resume_vN.pdf`. The application's `application.md` frontmatter (`resume_used:`) must point at the **versioned file**, not the living draft, so every application records exactly which resume was submitted.
 - Interview prep: every `application.md` gets an "Interview prep notes" section listing the skills Paul should brush up on for that company's interview loop (based on the fit/gap assessment), plus the strong areas to lean on. Create it at scaffold time, not post-submit.
 
 ## Inbound status updates — Gmail sweep daemon
