@@ -99,5 +99,5 @@ All live in `scripts/md2pdf.sh` + `scripts/resume-style.html`; read them before
 
 ## After approval
 
-On approval for a submission: snapshot to `wendt_paul_resume_v1.md` / `wendt_paul_resume_v1.pdf` (`_v2`, ...),
+On approval for a submission: copy the rendered PDF into the application directory as `applications/<application>/wendt_paul_resume.pdf` (no `_v1` snapshots in `resumes/` — one copy per field),
 point the application's `resume_used:` frontmatter at the versioned file, and commit.
