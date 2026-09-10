@@ -5,7 +5,7 @@ parts of a job search and stops at the submit button.
 
 Built on the [`pi` agent harness](https://github.com/badlogic/pi-mono) with
 LLM subagents, it discovers relevant postings, distills an evidence bank into
-tailored one-page resumes, fills out application forms on real job portals via
+selects one of five pre-approved one-page resumes, fills out application forms on real job portals via
 browser automation, and tracks status — while a human reviews everything and
 makes the final call. The submit button is human-only; the harness exists to
 make that last step take five minutes instead of an hour.
@@ -25,18 +25,24 @@ discover → tailor → prepare → [ human reviews & submits ] → track
   effort is spent, then staged locally with a match score, key skills
   required, and identified gaps.
 
-### 2. Evidence-bank-driven resume tailoring
+### 2. Resume selection (no agent-authored resumes)
 - `RESUME.md` is the master **evidence bank**: raw experience, impact metrics,
-  projects, certifications, and context.
-- For each role, the agent distills the evidence bank into a genuinely
-  tailored resume under `resumes/<field>/wendt_paul_resume.md` — reordering, reweighting,
-  and rewording bullets to target the field (`insurtech`, `ml-platform`,
-  `agentic-platform`, ...).
+  projects, certifications, and context. It drives fit-vetting and keyword-gap
+  analysis, not resume writing.
+- Five canonical, human-approved resumes live under `resumes/<field>/` —
+  `agentic-platform`, `cloud-infra`, `data-engineer`, `insurtech`,
+  `ml-platform`. For each role the agent picks the closest fit and uses it
+  as-is; it never authors new or custom resumes.
+- The one sanctioned change path: if a JD requires a keyword the chosen resume
+  underplays (e.g. Apache Iceberg) **and** the evidence bank (`RESUME.md`,
+  `braindump.md`) shows Paul genuinely has that experience, the agent raises it
+  with Paul — JD requirement + evidence cited — and Paul decides whether to
+  fold it in. Unsupported keywords are flagged as real gaps instead.
 - `braindump.md` (a gitignored local knowledge bank) supplies personal
   narrative and preferences the agent can draw from.
 
 ### 3. Application preparation
-- The agent drafts the tailored resume, renders it to a one-page PDF
+- The agent renders the chosen resume to a one-page PDF
   (pandoc + headless Chrome via [`scripts/cdp.py`](scripts/cdp.py)), and
   verifies it — page count, links attached to phrases, visual screenshot check.
 - It then fills the application form through **browser automation over the
@@ -66,7 +72,7 @@ discover → tailor → prepare → [ human reviews & submits ] → track
 |---|---|
 | `AGENTS.md` | The agent's operating contract: hard rules, submit gate, fit vetting, form-filling discipline |
 | `RESUME.md` | Master resume evidence bank |
-| `resumes/<field>/` | Tailored resume per field |
+| `resumes/<field>/` | Canonical resume per field (5 fields; agent selects, never authors) |
 | `daemons/` | Job-discovery, Gmail status-sweep, and credential-check daemons |
 | `scripts/cdp.py` | CDP browser automation |
 | `scripts/md2pdf.sh` + `resume.css` | Resume markdown → PDF |

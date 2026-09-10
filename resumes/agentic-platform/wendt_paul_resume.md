@@ -5,41 +5,70 @@ LinkedIn: [linkedin.com/in/paul-wendt-81380a260](https://www.linkedin.com/in/pau
 
 ## Summary
 
-Senior engineer (5.5 yrs) who treats AI coding agents as the default way to build. Built and ran large-scale Python/AWS data infrastructure (1M+ videos/day ingestion, thousands of daily orchestration runs) in compliance-heavy environments, and now run my day-to-day work on an open-source agent harness I've forked and extended. Deep in data engineering (SQL, orchestration, table formats) and cloud infrastructure (K8s, IaC, CI/CD). US citizen; no sponsorship required.
+Senior engineer with 5 years of experience who treats AI coding agents as the default way to build. Built and ran large-scale Python/AWS data infrastructure in compliance-heavy environments, and now run my day-to-day work on an open-source agent harness I've forked and extended. Deep in data engineering and cloud infrastructure. US citizen; no sponsorship required.
 
 ## Experience
 
 ### SimpliSafe — Boston, MA
 
-**Senior ML Ops Engineer** · Oct 2024 – Mar 2026 · (promoted to Senior Jun 2025)
+**Senior ML Ops Engineer**
+*Oct 2024 – Mar 2026*
 
-- Built and operated production Python/AWS services ingesting up to 1.2M videos/day (EventBridge→SQS/Lambda→S3/Iceberg), the data foundation for all computer-vision training
-- Designed version-controlled sampling policies (uniform/deterministic/adhoc) cut ingest volume 75% (1.2M → 300k/day) with large cost savings; wired a policy simulator into CI/CD to block overly expensive policy changes
-- Built the governance layer for an ML data platform in a legally constrained domain (30-day retention, Right-to-be-Forgotten): daily Dagster SQL-invariant and S3-inventory reconciliation checks that caught a race condition, an erroneous backfill, and state drift — codified after leading multi-day incident response with legal on a toggle-inversion bug affecting hundreds of thousands of users
-- Deployed and stabilized Voxel51 on EKS (vendor API instability → direct MongoDB SDK workaround); built a custom delegated operator bridging Voxel to Anyscale that the vendor adopted as a product feature
+Owned the data infrastructure feeding computer vision model training.
 
-**Data Engineer / Platform Engineer** · Nov 2021 – Oct 2024 · (promoted to DE II Jun 2023)
+- Built and operated production Python/AWS services ingesting up to 1.2M videos/day, the data foundation for all computer-vision training
+- Designed a version-controlled video sampling framework that cut ingestion volume ~75% (1.2M to ~300K videos/day) and wired policy simulator into CI/CD to block deployments exceeding lambda execution timeouts
+- Built a compliant ML data governance layer (30-day retention/RTBF) using daily Dagster SQL-invariants and S3 inventory reconciliations.
+- Deployed Voxel51 on AWS EKS and engineered a custom delegated operator bridging the platform to Anyscale/Ray distributed compute; code was upstreamed and adopted by the vendor as a core product feature.
 
-- Major implementer on a Dagster migration (cron → orchestrated platform, thousands of daily jobs, ~30 users across 10 teams); designed "dependency sensor v2" preserving partition lineage across ~350 pipelines — a core platform primitive
-- Migrated GitHub Actions runners from EC2 to EKS (CDK + Helm), cutting test delays from >1 hour to ~20 minutes; backfilled ~150M images (~37.5 TB) to bootstrap ML training data
-- Built ~50 Zuora pipelines for finance reporting; wrote automated Dagster integration tests via a GraphQL client
+**Data Engineer II**
+*Nov 2021 – Oct 2024*
+
+Major implementer on the team that migrated the data platform from cron jobs on EC2 to Dagster orchestration.
+
+- Migrated legacy EC2 cron pipelines to an orchestrated source/transform/sink model on Dagster, scaling the platform to thousands of daily runs
+- Co-authored a YAML-based DSL on top of the new architecture to democratize pipeline creation for 30+ analysts across 10 teams
+- Designed a custom Dagster dependency sensor to preserve partition lineage across 350+ downstream pipelines
+- Migrated GitHub Actions runners from a standalone EC2 box to EKS (CDK + Helm), cutting integration test runtimes from over an hour to under 20 minutes
 
 ### John Hancock — Boston, MA
 
 **Actuarial Associate** · May 2019 – Nov 2021
 
 - Built annuity valuation tooling with reserving/regulatory stakeholders, including a Python AST transpiler compiling model specs to Excel
-- Automated ~5 quarterly reporting workbooks (VBA); prepared capital/remittance forecasts for senior management
-
-## Agentic engineering (how I work now)
-
-- [Extended the pi agent harness](https://github.com/WillChangeThisLater/pi): video/audio input support, TUI per-model modality indicators, push-to-talk dictation (STT), model-aware identity in system prompts — all implemented end-to-end by agents
-- [Built an agent-run job-search pipeline](https://github.com/WillChangeThisLater/ai-job-search): posting discovery, evidence-bank-driven resume tailoring, browser form filling with screenshot verification, application tracking — with agent output held to a production bar (tests, SQL invariants, reconciliation checks), the same verification discipline I applied to ML data governance at SimpliSafe
-- Daily driver: personal agent skill library (CDP browser automation, per-site controls files, tmux orchestration, X11 GUI automation)
+- Automated ~5 core quarterly reporting workbooks with VBA, cutting ~10 hours per quarter from the reporting cycle
 
 
-## Education & Certifications
+## Education
 
-**Temple University** — B.A. Actuarial Science, Minor CS · *Summa Cum Laude* (2019) · CKA (2023) · ASA (2021)
+**Temple University** — Philadelphia, PA
+*Aug 2015 – May 2019*
+B.A. in Actuarial Science, Minor in Computer Science · *Summa Cum Laude*
 
-**Skills:** Python · SQL · Bash · Go · AWS (Lambda, S3, DynamoDB, Kinesis, EventBridge, SQS, EKS, CloudFormation, CDK, MWAA) · Kubernetes · Docker · Helm · GitHub Actions · Dagster · Airflow · Iceberg · Kafka · Ray/Anyscale · DuckDB · Pandas · agent orchestration, CDP browser automation, AI-assisted verification
+---
+
+## Certifications
+
+- **Certified Kubernetes Administrator (CKA)** — 2023
+- **AWS Certified Cloud Practitioner** — 2022
+- **Associate of the Society of Actuaries (ASA)** — 2021
+
+---
+
+## Projects
+
+- **Trail PinePhone Build**: Configured a mobile Linux environment utilizing Tailscale VPN and SSH-over-hotspot to establish secure, remote shell sessions into a distributed Anyscale cluster during a 4.5 month thru-hike
+- **AI Job Search Pipeline**: Multi-agent pipeline that sweeps job boards daily, vets postings against a structured evidence bank, and suggests the best listings
+- **Pi Harness Extension**: Extended open-source Pi harness to support multi-modal audio/video input streaming, push-to-talk dictation (STT), and custom TUI model-state indicators
+
+---
+
+## Technical Skills
+
+| Category | Technologies |
+|----------|-------------|
+| Languages | Python, SQL, Bash, Go |
+| Data | Apache Iceberg, Dagster, Kafka, Airflow/MWAA, Athena, Pandas, DuckDB, Hex |
+| Cloud & Infra | AWS (EKS, CDK, Lambda, Step Functions, DynamoDB, S3, SQS, Kinesis Firehose, EventBridge), Kubernetes, Helm, Ray/Anyscale |
+| DevOps | GitHub Actions (custom actions, EKS runners), CI/CD architecture, ML data pipelines |
+| Tools | Git, Neovim, Tmux, SSH, jq/yq, GraphQL |

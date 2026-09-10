@@ -1,59 +1,77 @@
 # Paul Wendt
 
-<style>
-body { font-size: 10pt; line-height: 1.3; }
-li { margin-bottom: 2px; }
-h2 { margin-top: 0.9em; }
-</style>
-
-
-Boston, MA area  
 Email: paulwendt567@gmail.com | Phone: +1-609-635-6144
 LinkedIn: [linkedin.com/in/paul-wendt-81380a260](https://www.linkedin.com/in/paul-wendt-81380a260) | GitHub: [github.com/WillChangeThisLater](https://github.com/WillChangeThisLater)
 
+---
+
 ## Summary
-Senior software/data platform engineer with Python + AWS experience building production systems in regulated environments, plus prior insurance-domain experience at John Hancock. Strong in backend service reliability, compliance controls, and day-to-day AI-assisted engineering with human-in-the-loop validation.
+Senior Infrastructure and Data Engineer with five years of experience building production systems in regulated environments, plus prior insurance-domain experience at John Hancock. Strong in backend service reliability, compliance controls, and day-to-day AI-assisted engineering with human-in-the-loop validation
 
 ## Experience
 
 ### SimpliSafe — Boston, MA
 
-**Senior ML Ops Engineer**  
-Hired at Level II · Oct 2024 – Mar 2026 · Promoted to Senior in Jun 2025
+**Senior ML Ops Engineer**
+*Oct 2024 – Mar 2026*
 
-- Built and operated production Python/AWS services for ingestion, permission routing, and Right-to-be-Forgotten compliance
-- Designed version-controlled sampling that reduced ingest volume 75% (1.2M → 300k videos/day)
-- Led daily reconciliation checks and remediation for a legal-risk toggle incident affecting hundreds of thousands of users
-- Led a 4-month handoff of the video-ingestion service to 3 ML engineers (CI/CD, CloudFormation, dashboards, datalake tables, sampling ops)
+Owned the data infrastructure feeding computer vision model training.
 
-**Data Engineer / Platform Engineer**  
-Nov 2021 – Oct 2024 · Promoted to Data Engineer II in Jun 2023
+- Built and operated four production data services (video ingestion, AI-permission routing, Right-to-be-Forgotten deletion) on EventBridge → SQS → Lambda → S3/Kinesis Firehose
+- Built Ray/Anyscale pipelines moving nightly video batches and metadata JSON between S3 and an annotation platform, orchestrated via MWAA Airflow
+- Deployed Voxel51 on AWS EKS, establishing secure connectivity to MongoDB Atlas and engineering a custom Anyscale operator adopted by the vendor as a core product feature
+- Ran a 4-month enablement program teaching 3 engineers CloudFormation, CI/CD, and on-call triage until they owned the video-ingestion service independently
 
-- Migrated cron-based workflows to Dagster + YAML DSL adopted by 30+ users across 10 teams
-- Built ~50 Zuora pipelines across ~25 objects for subscription/finance reporting (ZOQL + AQuA)
-- Migrated GitHub Actions runners from EC2 to EKS (CDK + Helm), reducing test delays from >1 hour to ~20 minutes
+**Data Engineer II**
+*Nov 2021 – Oct 2024*
+
+Major implementer on the team that migrated the data platform from cron jobs on EC2 to Dagster orchestration.
+
+- Migrated legacy EC2 cron pipelines to an orchestrated source/transform/sink model on Dagster, scaling the platform to thousands of daily runs
+- Co-authored a YAML-based DSL on top of the new architecture to democratize pipeline creation for 30+ analysts across 10 teams
+- Authored ~50 enterprise data pipelines syncing complex Zuora billing objects via ZOQL and AQuA APIs into Apache Iceberg tables to power core financial and subscription revenue reporting datasets
+- Migrated GitHub Actions runners from a standalone EC2 box to EKS (CDK + Helm), cutting integration test runtimes from over an hour to under 20 minutes
 
 ### John Hancock Life Insurance — Boston, MA
 
-**Actuarial Associate**  
-May 2019 – Nov 2021
+**Actuarial Associate**
+*May 2019 – Nov 2021*
 
-- Built annuity valuation tooling with reserving/regulatory stakeholders, including Python AST conversion of model specs to Excel
-- Automated ~5 quarterly reporting workbooks with VBA, reducing recurring effort by ~10 hours/quarter
-- Prepared quarterly capital and remittance forecasts for senior management
+- Implemented annuity valuation model with reserving team and state regulators; wrote a Python AST transpiler converting model specifications to Excel, eliminating weeks of manual translation effort
+- Automated ~5 core quarterly reporting workbooks with VBA, cutting ~10 hours per quarter from the reporting cycle
+
+---
 
 ## Education
 
-**Temple University** — Philadelphia, PA  
-B.A. in Actuarial Science, Minor in Computer Science · *Summa Cum Laude*  
-Aug 2015 – May 2019
+**Temple University** — Philadelphia, PA
+*Aug 2015 – May 2019*
+B.A. in Actuarial Science, Minor in Computer Science · *Summa Cum Laude*
+
+---
 
 ## Certifications
 
-- CKA (2023) · AWS Cloud Practitioner (2022) · ASA (2021, 8 exams)
+- **Certified Kubernetes Administrator (CKA)** — 2023
+- **AWS Certified Cloud Practitioner** — 2022
+- **Associate of the Society of Actuaries (ASA)** — 2021
+
+---
+
+## Projects
+
+- **Trail PinePhone Build**: Configured a mobile Linux environment utilizing Tailscale VPN and SSH-over-hotspot to establish secure, remote shell sessions into a distributed Anyscale cluster during a 4.5 month thru-hike
+- **AI Job Search Pipeline**: Multi-agent pipeline that sweeps job boards daily, vets postings against a structured evidence bank, and suggests the best listings
+- **Pi Harness Extension**: Extended open-source Pi harness to support multi-modal audio/video input streaming, push-to-talk dictation (STT), and custom TUI model-state indicators
+
+---
 
 ## Technical Skills
 
-**Languages:** Python, SQL, Bash, Go  
-**Cloud/Infra:** AWS (Lambda, S3, DynamoDB, Kinesis, EventBridge, SQS, EC2, EKS, CloudFormation, CDK, SAM, MWAA), Kubernetes, Docker, Helm, GitHub Actions  
-**Data/Orchestration:** Dagster, Iceberg, Ray/Anyscale, Kafka, Step Functions, DuckDB, Hex
+| Category | Technologies |
+|----------|-------------|
+| Languages | Python, SQL, Bash, Go |
+| Data | Apache Iceberg, Dagster, Kafka, Airflow/MWAA, Athena, Pandas, DuckDB, Hex |
+| Cloud & Infra | AWS (EKS, CDK, Lambda, Step Functions, DynamoDB, S3, SQS, Kinesis Firehose, EventBridge), Kubernetes, Helm, Ray/Anyscale |
+| DevOps | GitHub Actions (custom actions, EKS runners), CI/CD architecture, Git, jq/yq, GraphQL, Tmux, SSH |
+

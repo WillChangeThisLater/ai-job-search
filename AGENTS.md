@@ -1,26 +1,26 @@
 # AGENTS.md — Repo layout for agents
 
 This repository is an agent-run job search pipeline. Humans and AI agents
-collaborate here: agents discover postings, generate tailored resumes, submit
+collaborate here: agents discover postings, select from a set of pre-approved tailored resumes, submit
 applications via browser automation, and track status. See `README.md` for the
 full pipeline description.
 
 ## Directory layout
 
 - `README.md` — what this repo is, how the pipeline works
-- `RESUME.md` — master resume evidence bank / scratchpad (source of truth for experience, impact, metrics, skills). Agents distill this into tailored resumes.
+- `RESUME.md` — master resume evidence bank / scratchpad (source of truth for experience, impact, metrics, skills). Agents use this to vet fit and to evaluate keyword gaps against the canonical resumes.
 - `braindump.md` — **local-only, gitignored.** Broader narrative + application defaults.
   - **If `braindump.md` does not exist, create it.** It is a general knowledge bank you can pull from for constructing tailored resumes — personal narrative, preferences, and context that are intentionally not checked in. Populate it as needed.
-- `resumes/<field>/wendt_paul_resume.md` — the tailored resume for a given `<field>` (e.g. `insurtech`, `ml-platform`, `agentic-platform`). `<field>` is the canonical grouping key.
+- `resumes/<field>/wendt_paul_resume.md` — the canonical resume for a given `<field>` (see the five fields under rule 1). Agents select; they never author new ones (see rule 1's keyword-gap escalation for the only sanctioned change path).
 - `applications/tracker.csv` — master application tracker CSV (one row per company/role, with status, salary range, match assessment, key skills/gaps)
 - `applications/<application>/application.md` — one directory per job application. Each `application.md` has YAML frontmatter (`company`, `role`, `field`, `status`, `posting_url`, `resume_used`, ...) plus the job description, links, and resume strategy.
 - `scripts/` — tooling: `cdp.py` (Chrome DevTools Protocol browser automation), `md2pdf.sh` + `resume.css` (resume markdown → PDF rendering)
 
 ## Conventions
 
-- **Resume authoring**: when drafting or visually polishing any tailored resume, follow the project-scoped [`resume-tailoring` skill](.pi/skills/resume-tailoring/SKILL.md) — content rules (simple bullets, honesty), the render→view→critique loop, and PDF pipeline gotchas.
+- **Resume authoring**: agents do not author resumes (rule 1). For rendering/visual-polish work on the canonical resumes, follow the project-scoped [`resume-tailoring` skill](.pi/skills/resume-tailoring/SKILL.md) — the render→view→critique loop and PDF pipeline gotchas.
 
-- Adding a new `<field>`: create `resumes/<new-field>/` and author a genuinely tailored resume (not a copy of another field's), then link it from the application's `application.md` via `../../resumes/<field>/wendt_paul_resume.md`.
+- Adding a new `<field>`: only with Paul's explicit sign-off. Author it as a genuinely tailored resume (not a copy of another field's), add it to the canonical list in rule 1, and commit.
 - Application status lives in each `application.md` frontmatter `status:`: `identified` | `in_progress` | `submitted` | `offer` | `accepted` | `denied`, mirrored in `applications/tracker.csv`. Terminal states: `offer`, `accepted`, `denied`.
 - Do not commit `braindump.md` or its contents; it is deliberately excluded from version control.
 
@@ -35,14 +35,23 @@ full pipeline description.
 
 These rules were crystallized from real runs. Follow them exactly.
 
-### 1. Resume review gate — BEFORE any form filling
-- Draft the tailored resume (`resumes/<field>/wendt_paul_resume.md`) and render the PDF.
-- **Stop. Present the resume content to the human for review and approval BEFORE opening the application form or filling any fields.** No exceptions.
+### 1. Resume selection — no custom resumes
+- **Agents must NOT author new or custom resumes.** The five canonical resumes under `resumes/` are the source of truth; pick the closest-fit field and use it as-is (render the PDF via `scripts/md2pdf.sh` if needed):
+  - `resumes/agentic-platform/` — AI/agentic platform, agent-harness, LLM-tooling roles
+  - `resumes/cloud-infra/` — infrastructure, DevOps, cloud-platform roles
+  - `resumes/data-engineer/` — data engineering, pipelines, analytics-platform roles
+  - `resumes/insurtech/` — insurance/finserv-domain engineering roles
+  - `resumes/ml-platform/` — ML infrastructure, ML ops, ML data-platform roles
+- **Keyword-gap escalation (the only permitted resume-change path):** if a JD requires a specific keyword/skill that is missing or underplayed in the chosen resume, do NOT silently edit the resume. First check the evidence (`RESUME.md`, `braindump.md`): only if the evidence bank shows Paul genuinely has that experience (e.g. JD wants Apache Iceberg; braindump confirms he has Iceberg experience but the resume barely mentions it), raise it with Paul in chat — cite the JD requirement and the evidence — and let him decide whether to fold it in. If the evidence bank does NOT support the keyword, it is a real gap: flag it in the application's Fit section, don't paper over it.
+- After any human-approved resume change, re-render (1 page), re-verify visually, and commit.
+
+### 2. Resume review gate — BEFORE any form filling
+- Present the chosen resume (and any keyword-gap changes Paul approved) to the human for a final confirm BEFORE opening the application form or filling any fields. No exceptions.
 - If the human requests changes, apply them, re-render, and re-confirm before proceeding.
 
 ### 2. Resume cosmetics (non-negotiable)
 - **One page.** Always. Verify by counting pages in the rendered PDF (`pdftotext`, count `\f`). If it overflows, cut content or trim bullets — never shrink below ~8.4pt or drop margins below 0.2in.
-- **Links must be attached to phrases, never shown as literal URLs.** Write `[Extended the pi agent harness](https://github.com/...)`, not `Extended the pi agent harness (github.com/...)`. Header links use labels (`LinkedIn`, `GitHub`), not URLs.
+- **Links must be attached to phrases**, except the header contact block, which shows the literal URLs (`LinkedIn: linkedin.com/... | GitHub: github.com/...`) as clickable links. Body links use labels, never bare URLs.
 - **Links must be verified visually** (screenshot the rendered resume) — text extraction alone has missed literal URLs before.
 - **No internal jargon** in resumes. Codenames like "the Friday service" mean nothing to a hiring manager — describe it ("the video-ingestion service").
 - First person where a sentence needs a pronoun ("I configured..."), never third person ("he/she").

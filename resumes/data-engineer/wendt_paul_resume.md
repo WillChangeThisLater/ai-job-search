@@ -27,10 +27,10 @@ Owned the data infrastructure feeding computer vision model training.
 
 Major implementer on the team that migrated the data platform from cron jobs on EC2 to Dagster orchestration.
 
-- Migrated legacy cron pipelines to a source/transform/sink model on Dagster, contributing to a YAML-based DSL used by ~30 analysts and data engineers across 10 teams; platform scaled to hundreds of pipelines with thousands of daily runs
-- Designed a dependency sensor preserving partition lineage where Dagster's default triggered downstream pipelines with the wrong partition keys, which became a core platform primitive across ~350 pipelines
-- Migrated GitHub Actions runners from a single EC2 box to EKS (CDK + Helm, least-privilege IAM); parallelized test suites, cutting integration test runtimes from over an hour to under 20 minutes
-- Authored ~50 pipelines syncing ~25 Zuora objects into Apache Iceberg tables to power subscription and finance reporting, translating non-technical analysts' requirements into production pipelines
+- Migrated legacy EC2 cron pipelines to an orchestrated source/transform/sink model on Dagster, scaling the platform to thousands of daily runs
+- Co-authored a YAML-based DSL on top of the new architecture to democratize pipeline creation for 30+ analysts across 10 teams
+- Designed a custom Dagster dependency sensor to preserve partition lineage across 350+ downstream pipelines
+- Migrated GitHub Actions runners from a standalone EC2 box to EKS (CDK + Helm), cutting integration test runtimes from over an hour to under 20 minutes
 
 ### John Hancock Life Insurance — Boston, MA
 
@@ -60,8 +60,9 @@ B.A. in Actuarial Science, Minor in Computer Science · *Summa Cum Laude*
 
 ## Projects
 
-- **Trail PinePhone Build**: Modified PinePhone for SSH-over-iPhone-hotspot remote development during an Appalachian Trail thru-hike
-- **AI Job Search Pipeline** *(Python + pi agent harness)*: Multi-agent pipeline that sweeps job boards daily, vets postings against a structured evidence bank, and suggests the best listings
+- **Trail PinePhone Build**: Configured a mobile Linux environment utilizing Tailscale VPN and SSH-over-hotspot to establish secure, remote shell sessions into a distributed Anyscale cluster during a 4.5 month thru-hike
+- **AI Job Search Pipeline**: Multi-agent pipeline that sweeps job boards daily, vets postings against a structured evidence bank, and suggests the best listings
+- **Pi Harness Extension**: Extended open-source Pi harness to support multi-modal audio/video input streaming, push-to-talk dictation (STT), and custom TUI model-state indicators
 
 
 ---
@@ -72,6 +73,6 @@ B.A. in Actuarial Science, Minor in Computer Science · *Summa Cum Laude*
 |----------|-------------|
 | Languages | Python, SQL, Bash, Go |
 | Data | Apache Iceberg, Dagster, Kafka, Airflow/MWAA, Athena, Pandas, DuckDB, Hex |
-| Cloud & Infra | AWS (S3, Lambda, SQS, Kinesis Firehose, EventBridge, EKS, CDK), Kubernetes, Helm, Ray/Anyscale |
+| Cloud & Infra | AWS (EKS, CDK, Lambda, Step Functions, DynamoDB, S3, SQS, Kinesis Firehose, EventBridge), Kubernetes, Helm, Ray/Anyscale |
 | DevOps | GitHub Actions (custom actions, EKS runners), CI/CD architecture, ML data pipelines |
 | Tools | Git, Neovim, Tmux, SSH, jq/yq, GraphQL |

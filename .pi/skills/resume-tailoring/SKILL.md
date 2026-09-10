@@ -1,13 +1,21 @@
 ---
 name: resume-tailoring
-description: How to author and visually polish tailored resumes in this repo — content principles (simple, honest), the render→view→critique loop, and the PDF pipeline gotchas.
+description: Rendering and visual polishing of the repo's canonical resumes — content principles (simple, honest), the render→view→critique loop, and the PDF pipeline gotchas. Agents do NOT author new resumes (see AGENTS.md rule 1); they select from the five canonical fields.
 ---
 
 # Resume Tailoring
 
-Workflow for creating `resumes/<field>/wendt_paul_resume.md` and its rendered PDF. This skill is
-project-specific: it assumes the repo layout in the root `AGENTS.md` (evidence bank in
-`RESUME.md`, one directory per field, `scripts/md2pdf.sh`).
+The five canonical resumes under `resumes/<field>/wendt_paul_resume.md` are
+human-approved source-of-truth documents. Agents **select** one — they do not
+author new or custom resumes. The only sanctioned change path is the
+keyword-gap escalation in AGENTS.md rule 1: a JD keyword that the evidence bank
+(`RESUME.md`, `braindump.md`) supports but the resume underplays gets raised
+with Paul, who decides.
+
+This skill covers the render→view→critique loop and PDF pipeline for when a
+resume *is* (re)rendered after human-approved changes. It assumes the repo
+layout in the root `AGENTS.md` (evidence bank in `RESUME.md`, one directory per
+field, `scripts/md2pdf.sh`).
 
 ## Content: write it before you style it
 

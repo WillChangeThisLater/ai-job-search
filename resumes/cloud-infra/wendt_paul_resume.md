@@ -3,44 +3,76 @@
 Email: paulwendt567@gmail.com | Phone: +1-609-635-6144
 LinkedIn: [linkedin.com/in/paul-wendt-81380a260](https://www.linkedin.com/in/paul-wendt-81380a260) | GitHub: [github.com/WillChangeThisLater](https://github.com/WillChangeThisLater)
 
+---
+
 ## Summary
-Cloud infrastructure engineer (4.5 yrs) who has owned production AWS systems end-to-end — architecture, security, cost, on-call — in environments where mistakes meant legal exposure, not just downtime. Ran infrastructure behind systems processing 1M+ videos/day and pipelines running thousands of daily jobs. Pragmatic: happiest as the accountable owner who makes the "how should we build this?" call and does the implementation.
+Senior Infrastructure and Data Engineer with five years of experience designing, migrating, and optimizing scalable cloud infrastructure. Experienced in building pipeline orchestration frameworks, managing distributed compute workloads for machine learning, and writing reliable data platform primitives.
 
 ## Experience
 
 ### SimpliSafe — Boston, MA
 
-**Senior ML Ops Engineer** · Oct 2024 – Mar 2026 · (promoted to Senior Jun 2025)
+**Senior ML Ops Engineer**
+*Oct 2024 – Mar 2026*
 
-- Owned production AWS services (Lambda, SQS, DynamoDB, EventBridge, S3) ingesting up to 1.2M videos/day; designed the sampling architecture that cut ingest volume 75%
-- Led remediation of a compliance-critical incident (permission inversion affecting hundreds of thousands of users), then built daily reconciliation checks that caught a race condition, an erroneous backfill, and state drift
-- Deployed and stabilized a vendor ML platform (Voxel51) on EKS: diagnosed vendor API instability, shipped the MongoDB-direct workaround that restored production viability, and handled IPv6/IPv4, networking, and MongoDB Atlas access from EKS workloads
+Owned the data infrastructure feeding computer vision model training.
+
+- Built and operated four production data services (video ingestion, AI-permission routing, Right-to-be-Forgotten deletion) on EventBridge → SQS → Lambda → S3/Kinesis Firehose
+- Built Ray/Anyscale pipelines moving nightly video batches and metadata JSON between S3 and an annotation platform, orchestrated via MWAA Airflow
+- Deployed Voxel51 on AWS EKS, establishing secure connectivity to MongoDB Atlas and engineering a custom Anyscale operator adopted by the vendor as a core product feature
 - Ran a 4-month enablement program teaching 3 engineers CloudFormation, CI/CD, and on-call triage until they owned the video-ingestion service independently
 
-**Data Engineer / Platform Engineer** · Nov 2021 – Oct 2024 · (promoted to DE II Jun 2023)
+**Data Engineer II**
+*Nov 2021 – Oct 2024*
 
-- Migrated GitHub Actions runner fleet from a dedicated EC2 instance to EKS (CDK + Helm), designing least-privilege IAM permissions; cut test queue delays from >1 hour to ~20 minutes
-- Major implementer on a company-wide platform migration (cron → Dagster): built connectors, extended a YAML DSL serving 30+ users across 10 teams at thousands of daily runs
-- Built ~50 finance-data pipelines into Apache Iceberg; backfilled ~150M images (~37.5 TB) via a multi-stage Step Functions architecture
-- Designed "dependency sensor v2" preserving partition lineage across ~350 pipelines — a core platform primitive where the off-the-shelf solution produced wrong semantics
+Major implementer on the team that migrated the data platform from cron jobs on EC2 to Dagster orchestration.
 
-### John Hancock — Boston, MA
+- Migrated legacy EC2 cron pipelines to an orchestrated source/transform/sink model on Dagster, scaling the platform to thousands of daily runs
+- Co-authored a YAML-based DSL on top of the new architecture to democratize pipeline creation for 30+ analysts across 10 teams
+- Designed a custom Dagster dependency sensor to preserve partition lineage across 350+ downstream pipelines
+- Migrated GitHub Actions runners from a standalone EC2 box to EKS (CDK + Helm), cutting integration test runtimes from over an hour to under 20 minutes
 
-**Actuarial Associate** · May 2019 – Nov 2021
+### John Hancock Life Insurance — Boston, MA
 
-- Built annuity valuation tooling with reserving/regulatory stakeholders, including a Python AST transpiler compiling model specs to Excel
-- Automated ~5 quarterly reporting workbooks (VBA); prepared capital/remittance forecasts for senior management
+**Actuarial Associate**
+*May 2019 – Nov 2021*
 
-## Agentic Engineering
+- Implemented annuity valuation model with reserving team and state regulators; wrote a Python AST transpiler converting model specifications to Excel, eliminating weeks of manual translation effort
+- Automated ~5 core quarterly reporting workbooks with VBA, cutting ~10 hours per quarter from the reporting cycle
 
-- [Extended the pi agent harness](https://github.com/WillChangeThisLater/pi): video/audio input support, TUI modality indicators, push-to-talk dictation (STT), model-aware system prompts — all implemented end-to-end by agents under my direction and review
-- [Built an agent-run job-search pipeline](https://github.com/WillChangeThisLater/ai-job-search): posting discovery, resume tailoring, browser-driven applications with screenshot verification
+---
 
-## Education & Certifications
+## Education
 
-**Temple University** — B.A. Actuarial Science, Minor CS · *Summa Cum Laude* (2019) · CKA (2023) · AWS Cloud Practitioner (2022)
+**Temple University** — Philadelphia, PA
+*Aug 2015 – May 2019*
+B.A. in Actuarial Science, Minor in Computer Science · *Summa Cum Laude*
+
+---
+
+## Certifications
+
+- **Certified Kubernetes Administrator (CKA)** — 2023
+- **AWS Certified Cloud Practitioner** — 2022
+- **Associate of the Society of Actuaries (ASA)** — 2021
+
+---
+
+## Projects
+
+- **Trail PinePhone Build**: Configured a mobile Linux environment utilizing Tailscale VPN and SSH-over-hotspot to establish secure, remote shell sessions into a distributed Anyscale cluster during a 4.5 month thru-hike
+- **AI Job Search Pipeline**: Multi-agent pipeline that sweeps job boards daily, vets postings against a structured evidence bank, and suggests the best listings
+- **Pi Harness Extension**: Extended open-source Pi harness to support multi-modal audio/video input streaming, push-to-talk dictation (STT), and custom TUI model-state indicators
+
+
+---
 
 ## Technical Skills
 
-- **Cloud/Infra:** AWS (Lambda, S3, DynamoDB, Kinesis, EventBridge, SQS, EC2, EKS, CloudFormation, CDK, SAM, MWAA, Athena), Kubernetes, Docker, Helm, GitHub Actions, IAM/least-privilege design
-- **Languages & Data:** Python, SQL, Bash, Go · Dagster, Airflow, Iceberg, Kafka, Step Functions, DuckDB
+| Category | Technologies |
+|----------|-------------|
+| Languages | Python, SQL, Bash, Go |
+| Data | Apache Iceberg, Dagster, Kafka, Airflow/MWAA, Athena, Pandas, DuckDB, Hex |
+| Cloud & Infra | AWS (EKS, CDK, Lambda, Step Functions, DynamoDB, S3, SQS, Kinesis Firehose, EventBridge), Kubernetes, Helm, Ray/Anyscale |
+| DevOps | GitHub Actions (custom actions, EKS runners), CI/CD architecture, ML data pipelines |
+| Tools | Git, Neovim, Tmux, SSH, jq/yq, GraphQL |
