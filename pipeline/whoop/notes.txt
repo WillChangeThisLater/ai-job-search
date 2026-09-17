@@ -1,0 +1,7 @@
+recruiter: matt
+
+* 180-200 band
+* current tech lead (peter?) is going on paternity, looking for someone to keep the ship stable while he is away
+* team currently is 5-6 people. heavy AWS shop
+* 4 days in office
+* seems like they have a platform already and are just looking for someone that can continue to provide technical direction in 

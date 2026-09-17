@@ -1,0 +1,9 @@
+recruiter: ? (secondary: emma)
+
+* located in davis square
+* band: 170-190
+* 1-2 days in office
+* team growing (90 -> 150)
+* data team is good (they have analysts and engineers) - they are just looking for an infra guy who can help, presumably with scaling
+* ^ as a result of above, big kubernetes focus
+* interview pipeline sounds like: do the technical test on codility, talk through it with analyst/engineer, then if they like the answer and you in person interview at their office.

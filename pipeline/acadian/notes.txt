@@ -1,0 +1,6 @@
+recruiter: dave (?)
+
+* 6 month contract gig, asking for top of range ($140/hr)
+* main guy (doug) is apparently looking to build a team. flexible - contract duration may end up being over 6 months. dave makes it sound like doug just wants smart people in the room
+* big emphasis on data modeling: bronze/silver/gold mentioned, lots of stuff about point-in-time analysis and making sure eval set results are not leaked into training set. this is a problem we saw at simplisafe and had numerous answers for
+* finance background probably helps my case: main thing i'd likely have to catch up on is how the proprietary data feeds (bloomberg, etc) work
