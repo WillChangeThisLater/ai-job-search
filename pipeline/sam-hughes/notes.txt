@@ -1,0 +1,10 @@
+# Sam Hughes — recruiter outreach (scaffolded 2026-09-17 by gmail-status-sweep)
+
+- LinkedIn connection invite email 2026-09-17 10:38 AM: "Sam Hughes, Senior Executive
+  Search Consultant is waiting for your response" — Lead Recruitment Consultant,
+  Boston MA, invite sent ~1 week prior, 7 connections in common.
+- No company or role named yet → application scaffolded local-only as
+  `applications/sam-hughes-recruiter-outreach/` (status: in_progress, action-needed).
+- Action needed: Paul to accept/decline the LinkedIn invite and ask Sam what
+  role/company she's hiring for.
+- Evidence: https://mail.google.com/mail/u/0/#search/from%3A%22Sam%22+%22still+waiting+for+your+response%22/FMfcgzQhWTpvWhXHTNXkGnNWQCZnGwJL
